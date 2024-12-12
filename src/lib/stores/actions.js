@@ -18,13 +18,17 @@ const modals = [
   },
 ];
 
-export const activeModal = writable(modals[0]);
-export function showActions() {
-  activeModal.set(modals[0]);
-}
-export function showInventory() {
-  activeModal.set(modals[1]);
-}
-export function showAtributes() {
-  activeModal.set(modals[2]);
-}
+const activeModal = writable(modals[0]);
+const components = {
+  showActions() {
+    activeModal.set(modals[0]);
+  },
+  showInventory() {
+    activeModal.set(modals[1]);
+  },
+  showAtributes() {
+    activeModal.set(modals[2]);
+  },
+};
+
+export { activeModal, components };

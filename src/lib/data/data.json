@@ -1,0 +1,257 @@
+{
+  "enemies": [
+    {
+      "name": "Slime",
+      "health": 15,
+      "maxHealth": 15,
+      "attack": 3,
+      "defense": 1,
+      "experience": 15,
+      "minLevel": 1,
+      "alive": true,
+      "messages": {
+        "noDamage": [
+          "O Slime absorveu o ataque sem sofrer nenhum dano!",
+          "Sua lâmina escorrega sem efeito pela gosma do Slime.",
+          "O ataque não foi suficiente para ferir o Slime.",
+          "O Slime parece rir ao resistir completamente ao ataque."
+        ],
+        "noAttack": [
+          "O Slime tentou atacar, mas errou completamente!",
+          "A gosma do Slime desliza sem acertar nada.",
+          "O Slime faz um movimento desajeitado e não consegue atacar.",
+          "O Slime hesita e perde a oportunidade de atacar."
+        ]
+      },
+      "loot": ["Slime Gel", "Small Health Potion"],
+      "inventory": {
+        "weapon": "None",
+        "armor": "Slime Body",
+        "accessory": "None"
+      }
+    },
+    {
+      "name": "Goblin",
+      "health": 30,
+      "maxHealth": 30,
+      "attack": 6,
+      "defense": 2,
+      "experience": 30,
+      "minLevel": 2,
+      "alive": true,
+      "messages": {
+        "noDamage": [
+          "O Goblin esquiva rapidamente do ataque!",
+          "Sua lâmina ricocheteia na armadura improvisada do Goblin.",
+          "O Goblin gargalha enquanto resiste ao golpe sem se ferir.",
+          "O ataque não é forte o suficiente para atravessar a defesa do Goblin."
+        ],
+        "noAttack": [
+          "O Goblin tenta atacar, mas tropeça e erra o golpe!",
+          "O Goblin balança sua arma desajeitadamente e falha.",
+          "A rapidez do Goblin não é suficiente para acertar o ataque.",
+          "O Goblin hesita por um momento e perde sua chance de atacar."
+        ]
+      },
+      "loot": ["Rusty Dagger", "Gold Coin", "Goblin Tooth"],
+      "inventory": {
+        "weapon": "Rusty Dagger",
+        "armor": "Torn Leather Vest",
+        "accessory": "Lucky Goblin Charm"
+      }
+    },
+    {
+      "name": "Troll",
+      "health": 60,
+      "maxHealth": 60,
+      "attack": 12,
+      "defense": 4,
+      "experience": 60,
+      "minLevel": 3,
+      "alive": true,
+      "messages": {
+        "noDamage": [
+          "O Troll ignora completamente o ataque!",
+          "Seu golpe parece inútil contra a pele grossa do Troll.",
+          "O Troll nem sente o impacto do seu ataque.",
+          "O ataque é absorvido pela densa musculatura do Troll."
+        ],
+        "noAttack": [
+          "O Troll balança seu braço lentamente e erra feio!",
+          "A força do Troll é inútil quando não consegue acertar.",
+          "O Troll rosna de frustração após falhar no ataque.",
+          "A lentidão do Troll faz com que você desvie facilmente do golpe."
+        ]
+      },
+      "loot": ["Troll Club", "Iron Ore", "Large Health Potion"],
+      "inventory": {
+        "weapon": "Troll Club",
+        "armor": "Reinforced Hide",
+        "accessory": "Bone Necklace"
+      }
+    },
+    {
+      "name": "Orc",
+      "health": 100,
+      "maxHealth": 100,
+      "attack": 18,
+      "defense": 6,
+      "experience": 100,
+      "minLevel": 5,
+      "alive": true,
+      "messages": {
+        "noDamage": [
+          "O Orc bloqueia o ataque com seu escudo robusto!",
+          "Sua arma ricocheteia contra a armadura do Orc.",
+          "O Orc rosna enquanto resiste ao golpe sem sofrer dano.",
+          "Seu ataque é ineficaz contra a força bruta do Orc."
+        ],
+        "noAttack": [
+          "O Orc tenta atacar, mas sua força o deixa desequilibrado!",
+          "O Orc ruge em frustração após errar o golpe.",
+          "Seu movimento ágil faz o Orc falhar no ataque.",
+          "O Orc golpeia o ar com raiva, mas sem acertar."
+        ]
+      },
+      "loot": ["Orc Axe", "Iron Helmet", "Orc Tusk"],
+      "inventory": {
+        "weapon": "Orc Axe",
+        "armor": "Chainmail Vest",
+        "accessory": "Orc Emblem"
+      }
+    }
+  ],
+  "items": {
+    "items": {
+      "consumables": [
+        {
+          "id": "C001",
+          "name": "Small Health Potion",
+          "type": "Potion",
+          "effect": {
+            "heal": 20
+          },
+          "description": "Restaura uma pequena quantidade de vida."
+        },
+        {
+          "id": "C002",
+          "name": "Large Health Potion",
+          "type": "Potion",
+          "effect": {
+            "heal": 50
+          },
+          "description": "Restaura uma grande quantidade de vida."
+        }
+      ],
+      "materials": [
+        {
+          "id": "M001",
+          "name": "Slime Gel",
+          "type": "Material",
+          "description": "Um resíduo pegajoso deixado por Slimes. Pode ser usado para criar itens."
+        },
+        {
+          "id": "M002",
+          "name": "Iron Ore",
+          "type": "Material",
+          "description": "Um pedaço de minério de ferro bruto. Útil para forjar armas e armaduras."
+        },
+        {
+          "id": "M003",
+          "name": "Goblin Tooth",
+          "type": "Material",
+          "description": "Um dente afiado arrancado de um Goblin. Pode ser usado para feitiçaria."
+        },
+        {
+          "id": "M004",
+          "name": "Orc Tusk",
+          "type": "Material",
+          "description": "Uma presa forte extraída de um Orc. Possui propriedades mágicas."
+        }
+      ]
+    },
+    "equipment": {
+      "weapons": [
+        {
+          "id": "W001",
+          "name": "Rusty Dagger",
+          "type": "Weapon",
+          "attack": 5,
+          "durability": 20,
+          "description": "Uma adaga velha e enferrujada. Pouco confiável, mas ainda afiada."
+        },
+        {
+          "id": "W002",
+          "name": "Troll Club",
+          "type": "Weapon",
+          "attack": 12,
+          "durability": 40,
+          "description": "Um porrete pesado carregado por Trolls. Letal em combate corpo a corpo."
+        },
+        {
+          "id": "W003",
+          "name": "Orc Axe",
+          "type": "Weapon",
+          "attack": 18,
+          "durability": 30,
+          "description": "Um machado brutal manuseado por Orcs. Forte, mas difícil de manejar."
+        }
+      ],
+      "armors": [
+        {
+          "id": "A001",
+          "name": "Torn Leather Vest",
+          "type": "Armor",
+          "defense": 2,
+          "durability": 25,
+          "description": "Um colete de couro desgastado. Fornece proteção básica."
+        },
+        {
+          "id": "A002",
+          "name": "Reinforced Hide",
+          "type": "Armor",
+          "defense": 8,
+          "durability": 50,
+          "description": "Uma armadura feita de couro reforçado. Resistente e durável."
+        },
+        {
+          "id": "A003",
+          "name": "Chainmail Vest",
+          "type": "Armor",
+          "defense": 12,
+          "durability": 60,
+          "description": "Uma veste de malha de aço. Excelente contra golpes cortantes."
+        }
+      ],
+      "accessories": [
+        {
+          "id": "AC001",
+          "name": "Lucky Goblin Charm",
+          "type": "Accessory",
+          "effect": {
+            "luck": 5
+          },
+          "description": "Um amuleto pequeno, feito à mão por Goblins. Aumenta a sorte."
+        },
+        {
+          "id": "AC002",
+          "name": "Bone Necklace",
+          "type": "Accessory",
+          "effect": {
+            "strength": 3
+          },
+          "description": "Um colar feito de ossos. Aumenta a força de quem o usa."
+        },
+        {
+          "id": "AC003",
+          "name": "Orc Emblem",
+          "type": "Accessory",
+          "effect": {
+            "defense": 5
+          },
+          "description": "Um emblema robusto usado por Orcs. Fornece resistência adicional."
+        }
+      ]
+    }
+  }
+}

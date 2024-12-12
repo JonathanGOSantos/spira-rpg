@@ -1,12 +1,26 @@
-export function calculateLevel(player, enemy) {
-  const experience = player.experience + enemy.experience;
-  const needExperience = player.level ** 2;
+import { playerStore } from '../stores/player';
 
-  if (experience >= needExperience) {
-    console.log('Parabéns, você subiu de nível!');
-    player.level += 1;
-    player.health = 100;
-    player.strength *= 2;
-    player.experience = experience - needExperience;
-  }
+function calculateLevel(player, enemy) {
+  playerStore.update((p) => {
+    let newHealth = p.health;
+    let newAttack = p.attack;
+    let newLevel = p.level;
+    let newExperience = p.experience + enemy.experience;
+    if (newExperience >= p.level ** 2) {
+      newLevel += 1;
+      newHealth = 100;
+      newAttack += 2;
+      newExperience -= p.level ** 2;
+      console.log('Parabéns, você subiu de nível!');
+    }
+    return {
+      ...p,
+      health: newHealth,
+      attack: newAttack,
+      level: newLevel,
+      experience: newExperience,
+    };
+  });
 }
+
+export { calculateLevel };

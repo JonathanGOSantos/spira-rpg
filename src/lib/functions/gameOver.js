@@ -1,3 +1,3 @@
 export function gameOver(reason) {
-  alert(`O jogo acabou: ${reason}`);
+  console.log(`O jogo acabou: ${reason}`);
 }
