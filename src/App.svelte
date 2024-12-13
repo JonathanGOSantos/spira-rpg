@@ -1,7 +1,7 @@
 <script>
   import Header from "./lib/components/Header.svelte";
   import Game from "./lib/components/Game.svelte";
-  import StartNewGame from "./lib/components/startNewGame.svelte";
+  import StartNewGame from "./lib/components/StartNewGame.svelte";
   import { gameState } from "./lib/stores/game";
   import GameOver from "./lib/components/GameOver.svelte";
 
