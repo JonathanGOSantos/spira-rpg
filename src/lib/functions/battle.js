@@ -5,6 +5,7 @@ import { gameOver } from './gameOver';
 
 import { playerStore } from '../stores/player';
 import { enemyStore } from '../stores/enemy';
+import { playerEscape } from './playerEscape';
 
 const battle = {
   goingOn: false,
@@ -14,7 +15,7 @@ const battle = {
   },
 
   playerAttack(player, enemy) {
-    const { message, damage } = attack(player, enemy);
+    const damage = attack(player, enemy);
     const health = enemy.health - damage;
 
     enemyStore.update((e) => {
@@ -22,17 +23,14 @@ const battle = {
       if (this.verifyWinner(player, updatedEnemy)) return updatedEnemy;
 
       setTimeout(() => {
-        if (updatedEnemy.alive) {
-          this.enemyAttack(player, updatedEnemy);
-        }
+        this.enemyAttack(player, enemy);
       }, 300);
-
       return updatedEnemy;
     });
   },
 
   enemyAttack(player, enemy) {
-    const { message, damage } = attack(enemy, player);
+    const damage = attack(enemy, player);
     const health = player.health - damage;
     playerStore.update((p) => {
       const updatedPlayer = { ...p, health: Math.max(health, 0) };
@@ -42,8 +40,8 @@ const battle = {
   },
 
   escape(player, enemy) {
-    const escapeRoll = Math.random();
-    if (escapeRoll > 0.2) {
+    const playerEscaped = playerEscape(player);
+    if (playerEscaped) {
       this.goingOn = false;
     } else {
       setTimeout(() => {
@@ -54,11 +52,9 @@ const battle = {
 
   verifyWinner(player, enemy) {
     if (enemy.health <= 0) {
-      enemy.alive = false;
       this.playerWins(player, enemy);
       return true;
     } else if (player.health <= 0) {
-      player.alive = false;
       this.playerLoses();
       return true;
     }
@@ -68,7 +64,7 @@ const battle = {
   playerWins(player, enemy) {
     this.goingOn = false;
     calculateLevel(player, enemy);
-    getPotion();
+    getPotion(enemy);
   },
 
   playerLoses() {

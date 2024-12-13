@@ -1,3 +1,5 @@
+import { gameState } from '../stores/game';
+
 export function gameOver(reason) {
-  console.log(`O jogo acabou: ${reason}`);
+  gameState.set('gameOver');
 }

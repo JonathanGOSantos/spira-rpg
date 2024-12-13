@@ -4,7 +4,7 @@ import { components } from '../stores/actions';
 import { playerStore } from '../stores/player';
 import { enemyStore } from '../stores/enemy';
 
-import { getRandomEnemy } from './getRandomEnemy';
+import { newMonster } from './getRandomEnemy';
 
 let player;
 playerStore.subscribe((value) => (player = value));
@@ -30,17 +30,14 @@ function actionHandler(event) {
   }
 }
 
-function gameLoop() {
-  // Atualiza o estado do jogo
-
-  // Atualiza o estado da batalha
+async function gameLoop() {
   if (battle.goingOn) {
     const actions = document.querySelectorAll('[data-actions]');
     actions.forEach((action) =>
       action.addEventListener('click', actionHandler)
     );
   } else {
-    enemyStore.set(getRandomEnemy(player.level));
+    enemyStore.set(await newMonster(player.level));
     battle.start(player, enemy);
   }
   window.requestAnimationFrame(gameLoop);

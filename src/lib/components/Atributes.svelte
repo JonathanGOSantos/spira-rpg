@@ -4,7 +4,7 @@
 </script>
 
 <section class="grid grid-cols-2 gap-2 pt-2">
-  <p class="py-2 bg-slate-500 rounded-md text-center">Vida: {$playerStore.health}/{$playerStore.maxHealth}</p>
+  <p class="py-2 bg-slate-500 rounded-md text-center">Vida: {$playerStore.health}/{$playerStore.maxhealth}</p>
   <p class="py-2 bg-slate-500 rounded-md text-center">Nível: {$playerStore.level} | XP: {$playerStore.experience}</p>
   <p class="py-2 bg-slate-500 rounded-md text-center">Força: {$playerStore.attack}</p>
 

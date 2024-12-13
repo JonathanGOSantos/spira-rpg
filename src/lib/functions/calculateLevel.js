@@ -1,4 +1,5 @@
 import { playerStore } from '../stores/player';
+import { outputStore } from '../stores/output';
 
 function calculateLevel(player, enemy) {
   playerStore.update((p) => {
@@ -11,7 +12,16 @@ function calculateLevel(player, enemy) {
       newHealth = 100;
       newAttack += 2;
       newExperience -= p.level ** 2;
-      console.log('Parabéns, você subiu de nível!');
+
+      const message = {
+        style: 'text-yellow-400',
+        text: 'Parabéns, você subiu de nível!',
+      };
+
+      outputStore.update((messages) => {
+        messages.push(message);
+        return messages;
+      });
     }
     return {
       ...p,

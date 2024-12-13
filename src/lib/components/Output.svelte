@@ -11,12 +11,12 @@
   });
 </script>
 
-<section bind:this={outputSection} class="overflow-y-scroll h-[200px]">
-  <output class="py-2 flex flex-col">
-    {#each $outputStore.split('\n') as line}
-    <p>
-      {line}
-    </p>
+<section bind:this={outputSection} class="overflow-y-scroll flex-1">
+  <output class="py-2 flex flex-col gap-1">
+    {#each $outputStore as line}
+      <p class={line.style}>
+        {line.text}
+      </p>
     {/each}
   </output>
 </section>

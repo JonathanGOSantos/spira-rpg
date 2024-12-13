@@ -1,3 +1,5 @@
+import { outputStore } from '../stores/output';
+
 export const inventory = [
   {
     name: 'Poção',
@@ -18,12 +20,20 @@ export const inventory = [
   },
 ];
 
-export function getPotion() {
+export function getPotion(enemy) {
   const potion = inventory[0];
 
   const chance = Math.floor(Math.random() * 100) + 1;
-  if (chance <= 20) {
-    console.log('Você encontrou uma poção!');
+  if (chance <= 100) {
     potion.amount += 1;
+    const message = {
+      style: 'text-yellow-400',
+      text: `Você encontrou uma poção!`,
+    };
+
+    outputStore.update((messages) => {
+      messages.push(message);
+      return messages;
+    });
   }
 }

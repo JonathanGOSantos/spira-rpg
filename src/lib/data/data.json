@@ -122,136 +122,134 @@
     }
   ],
   "items": {
-    "items": {
-      "consumables": [
-        {
-          "id": "C001",
-          "name": "Small Health Potion",
-          "type": "Potion",
-          "effect": {
-            "heal": 20
-          },
-          "description": "Restaura uma pequena quantidade de vida."
+    "consumables": [
+      {
+        "id": "C001",
+        "name": "Small Health Potion",
+        "type": "Potion",
+        "effect": {
+          "heal": 20
         },
-        {
-          "id": "C002",
-          "name": "Large Health Potion",
-          "type": "Potion",
-          "effect": {
-            "heal": 50
-          },
-          "description": "Restaura uma grande quantidade de vida."
-        }
-      ],
-      "materials": [
-        {
-          "id": "M001",
-          "name": "Slime Gel",
-          "type": "Material",
-          "description": "Um resíduo pegajoso deixado por Slimes. Pode ser usado para criar itens."
+        "description": "Restaura uma pequena quantidade de vida."
+      },
+      {
+        "id": "C002",
+        "name": "Large Health Potion",
+        "type": "Potion",
+        "effect": {
+          "heal": 50
         },
-        {
-          "id": "M002",
-          "name": "Iron Ore",
-          "type": "Material",
-          "description": "Um pedaço de minério de ferro bruto. Útil para forjar armas e armaduras."
+        "description": "Restaura uma grande quantidade de vida."
+      }
+    ],
+    "materials": [
+      {
+        "id": "M001",
+        "name": "Slime Gel",
+        "type": "Material",
+        "description": "Um resíduo pegajoso deixado por Slimes. Pode ser usado para criar itens."
+      },
+      {
+        "id": "M002",
+        "name": "Iron Ore",
+        "type": "Material",
+        "description": "Um pedaço de minério de ferro bruto. Útil para forjar armas e armaduras."
+      },
+      {
+        "id": "M003",
+        "name": "Goblin Tooth",
+        "type": "Material",
+        "description": "Um dente afiado arrancado de um Goblin. Pode ser usado para feitiçaria."
+      },
+      {
+        "id": "M004",
+        "name": "Orc Tusk",
+        "type": "Material",
+        "description": "Uma presa forte extraída de um Orc. Possui propriedades mágicas."
+      }
+    ]
+  },
+  "equipment": {
+    "weapons": [
+      {
+        "id": "W001",
+        "name": "Rusty Dagger",
+        "type": "Weapon",
+        "attack": 5,
+        "durability": 20,
+        "description": "Uma adaga velha e enferrujada. Pouco confiável, mas ainda afiada."
+      },
+      {
+        "id": "W002",
+        "name": "Troll Club",
+        "type": "Weapon",
+        "attack": 12,
+        "durability": 40,
+        "description": "Um porrete pesado carregado por Trolls. Letal em combate corpo a corpo."
+      },
+      {
+        "id": "W003",
+        "name": "Orc Axe",
+        "type": "Weapon",
+        "attack": 18,
+        "durability": 30,
+        "description": "Um machado brutal manuseado por Orcs. Forte, mas difícil de manejar."
+      }
+    ],
+    "armors": [
+      {
+        "id": "A001",
+        "name": "Torn Leather Vest",
+        "type": "Armor",
+        "defense": 2,
+        "durability": 25,
+        "description": "Um colete de couro desgastado. Fornece proteção básica."
+      },
+      {
+        "id": "A002",
+        "name": "Reinforced Hide",
+        "type": "Armor",
+        "defense": 8,
+        "durability": 50,
+        "description": "Uma armadura feita de couro reforçado. Resistente e durável."
+      },
+      {
+        "id": "A003",
+        "name": "Chainmail Vest",
+        "type": "Armor",
+        "defense": 12,
+        "durability": 60,
+        "description": "Uma veste de malha de aço. Excelente contra golpes cortantes."
+      }
+    ],
+    "accessories": [
+      {
+        "id": "AC001",
+        "name": "Lucky Goblin Charm",
+        "type": "Accessory",
+        "effect": {
+          "luck": 5
         },
-        {
-          "id": "M003",
-          "name": "Goblin Tooth",
-          "type": "Material",
-          "description": "Um dente afiado arrancado de um Goblin. Pode ser usado para feitiçaria."
+        "description": "Um amuleto pequeno, feito à mão por Goblins. Aumenta a sorte."
+      },
+      {
+        "id": "AC002",
+        "name": "Bone Necklace",
+        "type": "Accessory",
+        "effect": {
+          "attack": 3
         },
-        {
-          "id": "M004",
-          "name": "Orc Tusk",
-          "type": "Material",
-          "description": "Uma presa forte extraída de um Orc. Possui propriedades mágicas."
-        }
-      ]
-    },
-    "equipment": {
-      "weapons": [
-        {
-          "id": "W001",
-          "name": "Rusty Dagger",
-          "type": "Weapon",
-          "attack": 5,
-          "durability": 20,
-          "description": "Uma adaga velha e enferrujada. Pouco confiável, mas ainda afiada."
+        "description": "Um colar feito de ossos. Aumenta a força de quem o usa."
+      },
+      {
+        "id": "AC003",
+        "name": "Orc Emblem",
+        "type": "Accessory",
+        "effect": {
+          "defense": 5
         },
-        {
-          "id": "W002",
-          "name": "Troll Club",
-          "type": "Weapon",
-          "attack": 12,
-          "durability": 40,
-          "description": "Um porrete pesado carregado por Trolls. Letal em combate corpo a corpo."
-        },
-        {
-          "id": "W003",
-          "name": "Orc Axe",
-          "type": "Weapon",
-          "attack": 18,
-          "durability": 30,
-          "description": "Um machado brutal manuseado por Orcs. Forte, mas difícil de manejar."
-        }
-      ],
-      "armors": [
-        {
-          "id": "A001",
-          "name": "Torn Leather Vest",
-          "type": "Armor",
-          "defense": 2,
-          "durability": 25,
-          "description": "Um colete de couro desgastado. Fornece proteção básica."
-        },
-        {
-          "id": "A002",
-          "name": "Reinforced Hide",
-          "type": "Armor",
-          "defense": 8,
-          "durability": 50,
-          "description": "Uma armadura feita de couro reforçado. Resistente e durável."
-        },
-        {
-          "id": "A003",
-          "name": "Chainmail Vest",
-          "type": "Armor",
-          "defense": 12,
-          "durability": 60,
-          "description": "Uma veste de malha de aço. Excelente contra golpes cortantes."
-        }
-      ],
-      "accessories": [
-        {
-          "id": "AC001",
-          "name": "Lucky Goblin Charm",
-          "type": "Accessory",
-          "effect": {
-            "luck": 5
-          },
-          "description": "Um amuleto pequeno, feito à mão por Goblins. Aumenta a sorte."
-        },
-        {
-          "id": "AC002",
-          "name": "Bone Necklace",
-          "type": "Accessory",
-          "effect": {
-            "strength": 3
-          },
-          "description": "Um colar feito de ossos. Aumenta a força de quem o usa."
-        },
-        {
-          "id": "AC003",
-          "name": "Orc Emblem",
-          "type": "Accessory",
-          "effect": {
-            "defense": 5
-          },
-          "description": "Um emblema robusto usado por Orcs. Fornece resistência adicional."
-        }
-      ]
-    }
+        "description": "Um emblema robusto usado por Orcs. Fornece resistência adicional."
+      }
+    ]
   }
 }

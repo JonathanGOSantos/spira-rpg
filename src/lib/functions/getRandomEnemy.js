@@ -1,37 +1,37 @@
+import * as prismic from 'https://cdn.skypack.dev/@prismicio/client';
 import { outputStore } from '../stores/output';
 
-export const newEnemy = async () => {
-  let enemies = [];
-  try {
-    const response = await fetch('../data/enemies.json');
+const repositoryName = 'spirarpg';
+const client = prismic.createClient(repositoryName);
 
-    if (response.ok) {
-      enemies = await response.json();
-    } else {
-      console.error('Erro ao carregar o JSON', response.status);
-    }
-  } catch (error) {
-    console.error(error);
-  }
+const init = async () => {
+  const prismicDoc = await client.getAllByType('monster');
+  const monsters = prismicDoc.map((doc) => doc.data);
+  return monsters;
 };
 
-// newEnemy();
+const newMonster = async (playerLevel) => {
+  const monsters = await init();
+  const availableMonsters = monsters.filter(
+    (monster) => monster.level <= playerLevel
+  );
 
-export function getRandomEnemy(playerLevel) {
-  // const availableMonsters = monsters.filter(
-  //   (monster) => monster.minLevel <= playerLevel
-  // );
-  // const randomIndex = Math.floor(Math.random() * availableMonsters.length);
-  // const enemy = availableMonsters[randomIndex];
+  const randomIndex = Math.floor(Math.random() * availableMonsters.length);
+  const monster = availableMonsters[randomIndex];
 
-  return {
-    name: 'Slime',
-    health: 10,
-    maxHealth: 10,
-    attack: 200,
-    defense: 0,
-    experience: 10,
-    minLevel: 1,
-    alive: true,
+  const messageIndex = Math.floor(Math.random() * monster.apparition.length);
+
+  const message = {
+    style: 'text-[#FFD700]',
+    text: monster.apparition[messageIndex].message,
   };
-}
+
+  outputStore.update((messages) => {
+    messages.push(message);
+    return messages;
+  });
+
+  return monster;
+};
+
+export { newMonster };
