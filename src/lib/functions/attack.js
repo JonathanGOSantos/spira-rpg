@@ -1,4 +1,4 @@
-import { outputStore } from '../stores/output';
+import { addOutputMessage } from '../stores/output';
 
 export function attack(attacking, defending) {
   if (!attacking || !defending) {
@@ -16,47 +16,28 @@ export function attack(attacking, defending) {
 
   if (attackingRoll === 20) {
     calculatedAttack *= 2;
-    messages = attacking.critical || attacking.hit;
-    console.log('Ataque Crítico!');
+    messages = attacking['critical-hit'];
   } else if (attackingRoll !== 1 && attackingRoll > defendingRoll) {
     calculatedAttack *= 1;
     messages = attacking.hit;
-    console.log('Ataque Normal!');
   } else {
     calculatedAttack *= 0;
-    messages = attacking.noattack;
-    console.log('Ataque Falhou!');
+    messages = attacking['no-attack'];
   }
 
   let damage = calculatedAttack - calculatedDefense;
   damage = Math.max(damage, 0);
 
   if (calculatedAttack > 0 && damage === 0) {
-    messages = defending.nodamage;
-    console.log('Sem dano!');
+    messages = defending['no-damage'];
   }
 
   messageIndex = Math.floor(Math.random() * messages.length);
 
   const messageStyle = attacking.player ? 'text-cyan-600' : 'text-red-400';
-  message = {
-    style: messageStyle,
-    text: messages[messageIndex].message,
-  };
 
-  outputStore.update((messages) => {
-    messages.push(message);
-    return messages;
-  });
+  addOutputMessage(messageStyle, messages[messageIndex].message);
+  addOutputMessage(messageStyle, `${damage} de dano.`);
 
-  message = {
-    style: messageStyle,
-    text: `${damage} de dano.`,
-  };
-
-  outputStore.update((messages) => {
-    messages.push(message);
-    return messages;
-  });
   return damage;
 }

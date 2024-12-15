@@ -1,5 +1,6 @@
 <script>
   import { startNewGame } from "../functions/startNewGame";
+  import Bag from "./Bag/Bag.svelte";
 
   let name;
   let form;

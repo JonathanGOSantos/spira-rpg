@@ -22,7 +22,7 @@ const newMonster = async (playerLevel) => {
   const messageIndex = Math.floor(Math.random() * monster.apparition.length);
 
   const message = {
-    style: 'text-[#FFD700]',
+    style: 'text-orange-400',
     text: monster.apparition[messageIndex].message,
   };
 

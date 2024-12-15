@@ -14,20 +14,20 @@
 
   onMount(() => {
     playerStore.subscribe(value => {
-      updateHealthBar(playerHealthBar, value.health, value.maxhealth);
+      updateHealthBar(playerHealthBar, value.health, value['max-health']);
     });
 
     if($enemyStore) {      
       enemyStore.subscribe(value => {
-        updateHealthBar(enemyHealthBar, value.health, value.maxhealth);
+        updateHealthBar(enemyHealthBar, value.health, value['max-health']);
       });
     }
   });
   
   $: {
-    updateHealthBar(playerHealthBar, $playerStore.health, $playerStore.maxhealth);
+    updateHealthBar(playerHealthBar, $playerStore.health, $playerStore['max-health']);
     if($enemyStore) {      
-    updateHealthBar(enemyHealthBar, $enemyStore.health, $enemyStore.maxhealth);
+    updateHealthBar(enemyHealthBar, $enemyStore.health, $enemyStore['max-health']);
     }
   }
 </script>
@@ -36,9 +36,9 @@
   <section class="flex flex-col gap-2">
     <span>{$playerStore.name}</span>
     <div>
-      <span>{$playerStore.health}/{$playerStore.maxhealth}</span>
+      <span>{$playerStore.health}/{$playerStore['max-health']}</span>
       <div class="border border-slate-200 w-[120px] rounded-sm overflow-hidden">
-        <div bind:this={playerHealthBar} class={`h-2 ${$playerStore.health / $playerStore.maxhealth > 0.3 ? "bg-green-800" : "bg-red-800"}`}></div>
+        <div bind:this={playerHealthBar} class={`h-2 ${$playerStore.health / $playerStore['max-health'] > 0.3 ? "bg-green-800" : "bg-red-800"}`}></div>
       </div>
     </div>
   </section>
@@ -46,9 +46,9 @@
     <section class="flex flex-col items-end text-end gap-2">
       <span>{$enemyStore.name}</span>
       <div>
-        <span>{$enemyStore.health}/{$enemyStore.maxhealth}</span>
+        <span>{$enemyStore.health}/{$enemyStore['max-health']}</span>
         <div class="border border-slate-200 w-[120px] rounded-sm overflow-hidden">
-          <div bind:this={enemyHealthBar} class={`h-2 ${$enemyStore.health / $enemyStore.maxhealth > 0.3 ? "bg-green-800" : "bg-red-800"}`}></div>
+          <div bind:this={enemyHealthBar} class={`h-2 ${$enemyStore.health / $enemyStore['max-health'] > 0.3 ? "bg-green-800" : "bg-red-800"}`}></div>
         </div>
       </div>
     </section>

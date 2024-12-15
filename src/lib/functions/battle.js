@@ -1,17 +1,16 @@
 import { attack } from './attack';
-import { calculateLevel } from './calculateLevel';
-import { getPotion } from './inventory';
+import { playerWins } from './playerWins';
 import { gameOver } from './gameOver';
 
+import { battleState } from '../stores/battle';
 import { playerStore } from '../stores/player';
 import { enemyStore } from '../stores/enemy';
 import { playerEscape } from './playerEscape';
+import { addOutputMessage } from '../stores/output';
 
 const battle = {
-  goingOn: false,
-
   start(player, enemy) {
-    this.goingOn = true;
+    battleState.set({ goingOn: true });
   },
 
   playerAttack(player, enemy) {
@@ -42,7 +41,8 @@ const battle = {
   escape(player, enemy) {
     const playerEscaped = playerEscape(player);
     if (playerEscaped) {
-      this.goingOn = false;
+      battleState.set({ goingOn: false });
+      enemyStore.set();
     } else {
       setTimeout(() => {
         this.enemyAttack(player, enemy);
@@ -52,7 +52,7 @@ const battle = {
 
   verifyWinner(player, enemy) {
     if (enemy.health <= 0) {
-      this.playerWins(player, enemy);
+      playerWins(player, enemy);
       return true;
     } else if (player.health <= 0) {
       this.playerLoses();
@@ -61,13 +61,8 @@ const battle = {
     return false;
   },
 
-  playerWins(player, enemy) {
-    this.goingOn = false;
-    calculateLevel(player, enemy);
-    getPotion(enemy);
-  },
-
   playerLoses() {
+    battleState.set({ goingOn: false });
     gameOver('Você morreu!');
   },
 };

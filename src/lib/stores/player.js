@@ -5,11 +5,17 @@ class Player {
   constructor(name) {
     this.player = true;
     this.name = name;
-    this.health = 100;
-    this.maxhealth = 100;
-    this.level = 1;
-    this.attack = 3;
+    this.health = 20;
+    this['max-health'] = 20;
+    this.attack = 2;
     this.defense = 0;
+    this.atributes = {
+      constitution: 1,
+      strength: 1,
+      resistance: 1,
+      dexterity: 1,
+    };
+    this.level = 1;
     this.experience = 0;
     this.inventory = [];
     this.hit = [
@@ -26,7 +32,7 @@ class Player {
         message: 'Com uma habilidade impressionante, você ataca o inimigo.',
       },
     ];
-    this.critical = [
+    this['critical-hit'] = [
       {
         type: 'critical',
         message:
@@ -42,7 +48,7 @@ class Player {
         message: 'Seu golpe certeiro faz o inimigo cambalear!',
       },
     ];
-    this.noattack = [
+    this['no-attack'] = [
       {
         type: 'miss',
         message: 'Você erra o ataque e sua arma corta apenas o ar.',
@@ -62,7 +68,7 @@ class Player {
           'Seu movimento foi mal calculado, e o golpe não acertou o alvo.',
       },
     ];
-    this.nodamage = [
+    this['no-damage'] = [
       {
         type: 'nodamage',
         message: 'O ataque inimigo não foi forte o suficiente para te ferir',
@@ -94,6 +100,14 @@ class Player {
         message: 'Você tenta fugir, mas o inimigo te encurrala.',
       },
     ];
+    this.moveForward = () => {
+      const playerRoll = Math.random();
+      return playerRoll;
+    };
+    this.relax = () => {
+      const playerRoll = Math.random();
+      return playerRoll;
+    };
   }
 }
 

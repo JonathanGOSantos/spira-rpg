@@ -23,7 +23,7 @@
           "O Slime hesita e perde a oportunidade de atacar."
         ]
       },
-      "loot": ["Slime Gel", "Small Health Potion"],
+      "loot": ["Slime Gel"],
       "inventory": {
         "weapon": "None",
         "armor": "Slime Body",
@@ -53,7 +53,7 @@
           "O Goblin hesita por um momento e perde sua chance de atacar."
         ]
       },
-      "loot": ["Rusty Dagger", "Gold Coin", "Goblin Tooth"],
+      "loot": ["Bones Dagger"],
       "inventory": {
         "weapon": "Rusty Dagger",
         "armor": "Torn Leather Vest",
@@ -83,7 +83,7 @@
           "A lentidão do Troll faz com que você desvie facilmente do golpe."
         ]
       },
-      "loot": ["Troll Club", "Iron Ore", "Large Health Potion"],
+      "loot": ["Preda com runas"],
       "inventory": {
         "weapon": "Troll Club",
         "armor": "Reinforced Hide",
