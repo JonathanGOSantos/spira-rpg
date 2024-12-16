@@ -16,7 +16,10 @@ function closeBag() {
 }
 
 const bagStore = writable({});
-bagStore.set(await getItems());
+
+(async function () {
+  bagStore.set(await getItems());
+})();
 
 function setCategories(bagStore) {
   const categories = [];

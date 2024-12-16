@@ -2,7 +2,7 @@
   const {categoryName, categoryItems } = $props();
 </script>
 
-<section class="flex flex-col items-center gap-2 bg-slate-700 bg-opacity-20 p-2 rounded-lg">
+<section class="flex flex-col items-center gap-2 bg-slate-700 bg-opacity-20 p-2 rounded-lg h-fit">
   <h3 class="text-center">{categoryName}</h3>
 
   <ul class="flex justify-center gap-4">
