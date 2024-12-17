@@ -9,8 +9,11 @@ const init = async () => {
   const monsters = prismicDoc.map((doc) => doc.data);
   return monsters;
 };
+let monsters = [];
 
-const monsters = await init();
+(async function () {
+  monsters = await init();
+})();
 
 const newMonster = async (playerLevel) => {
   const availableMonsters = monsters.filter(
