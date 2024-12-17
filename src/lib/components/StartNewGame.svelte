@@ -42,5 +42,5 @@
 </section>
 
 {#if render}
-  <Bag top='500%' bottom='auto' />
+  <Bag style="startNewGame" />
 {/if}

@@ -15,5 +15,5 @@
 <Actions />
 
 {#if $bagStore.opened}
-  <Bag top="146px" bottom="0" />
+  <Bag style="game" />
 {/if}
