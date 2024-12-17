@@ -4,10 +4,10 @@
   import Button from "../Button.svelte";
   import Category from "./components/Category.svelte";
 
-  const {top} = $props()
+  const {top, bottom} = $props()
 </script>
 
-<section class={`bg-slate-900 bg-opacity-95 flex flex-col gap-2 p-2 absolute bottom-0 left-0 w-full top-[${top}]`}>
+<section class={`bg-slate-900 bg-opacity-95 flex flex-col gap-2 p-2 absolute left-0 w-full top-[${top}] bottom-[${bottom}]`}>
   <h2 class="text-center text-xl">Mochila</h2>
   <div class="grid grid-cols-2 grid-rows-auto gap-4 h-min">
     {#each categories as category}
