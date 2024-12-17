@@ -7,7 +7,7 @@ class Player {
     this.name = name;
     this.health = 20;
     this['max-health'] = 20;
-    this.attack = 2;
+    this.attack = 1;
     this.defense = 0;
     this.atributes = {
       constitution: 1,

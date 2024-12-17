@@ -17,12 +17,10 @@ function closeBag() {
 
 const bagStore = writable({});
 
-(async function () {
-  bagStore.set(await getItems());
-})();
-
+let categories = [];
 function setCategories(bagStore) {
-  const categories = [];
+  categories = [];
+
   for (let i in bagStore) {
     if (typeof bagStore[i] === 'boolean') continue;
 
@@ -37,7 +35,6 @@ function setCategories(bagStore) {
   for (let i in categories) {
     categories[i].items = setItems(categories[i].items);
   }
-
   return categories;
 }
 
@@ -50,4 +47,4 @@ function setItems(category) {
   return items;
 }
 
-export { bagStore, closeBag, openBag, setCategories };
+export { bagStore, categories, closeBag, openBag, setCategories };

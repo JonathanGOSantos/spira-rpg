@@ -1,6 +1,19 @@
 <script>
+  import { get } from "svelte/store";
+  import { getItems } from "../services/getItems";
   import { startNewGame } from "../functions/startNewGame";
+  import { bagStore, setCategories } from "../stores/bag";
   import Bag from "./Bag/Bag.svelte";
+
+  let render = false;
+
+  async function startRender () {
+    bagStore.set(await getItems());
+    await setCategories(get(bagStore));
+    render = true;  
+  }
+
+  startRender();
 
   let name;
   let form;
@@ -11,7 +24,7 @@
     } else {
       form.reportValidity();
     }
-  }
+  } 
 </script>
 
 <section class="py-4 flex-1 grid place-items-center">
@@ -27,3 +40,7 @@
     <button type="submit" class="bg-emerald-700 px-4 py-2 rounded-lg w-full">Novo Jogo</button>
   </form>
 </section>
+
+{#if render}
+  <Bag top='500%' />
+{/if}

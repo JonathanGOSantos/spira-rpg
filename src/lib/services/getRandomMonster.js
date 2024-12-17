@@ -10,8 +10,9 @@ const init = async () => {
   return monsters;
 };
 
+const monsters = await init();
+
 const newMonster = async (playerLevel) => {
-  const monsters = await init();
   const availableMonsters = monsters.filter(
     (monster) => monster.level <= playerLevel
   );

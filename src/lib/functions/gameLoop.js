@@ -6,6 +6,7 @@ import { playerStore } from '../stores/player';
 import { enemyStore } from '../stores/enemy';
 import { newMonster } from '../services/getRandomMonster';
 import { bagStore, closeBag, openBag } from '../stores/bag';
+import { addOutputMessage } from '../stores/output';
 
 let player = get(playerStore);
 let enemy = get(enemyStore);
@@ -18,9 +19,16 @@ function actionHandler(event) {
 
   switch (action) {
     case 'playerMoveForward':
+      enemyStore.set();
       if (player.moveForward() < 0.75) {
+        addOutputMessage(
+          'text-slate-200',
+          'Você avançou e encontrou um monstro!'
+        );
         startBattle(player, enemy);
+        break;
       }
+      addOutputMessage('text-slate-200', 'Você avançou e não encontrou nada!');
       break;
     case 'playerRelax':
       console.log(player);

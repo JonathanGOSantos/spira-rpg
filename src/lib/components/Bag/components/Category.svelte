@@ -1,4 +1,6 @@
 <script>
+  import { useItem } from "../../../functions/useItem";
+
   const {categoryName, categoryItems } = $props();
 </script>
 
@@ -8,8 +10,13 @@
   <ul class="flex justify-center gap-4">
     {#each categoryItems as item}
     <li class="flex flex-col items-center gap-2">
-      <img src={item.icon.url} alt={item.alt || item.name}>
-      <p class="text-sm">{item.amount || 0}</p>
+      <button 
+      class="border outline-none rounded-md p-1 hover:bg-slate-600" 
+      onclick={(e) => useItem(item, e)}
+      >
+        <img src={item.icon.url} alt={item.alt || item.name}>
+      </button>
+        <p class="text-sm">{item.amount || 0}</p>
     </li>
     {/each}
   </ul>
