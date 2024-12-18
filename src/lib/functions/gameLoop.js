@@ -5,7 +5,7 @@ import { battle } from './battle';
 import { playerStore } from '../stores/player';
 import { enemyStore } from '../stores/enemy';
 import { newMonster } from '../services/getRandomMonster';
-import { bagStore, closeBag, openBag } from '../stores/bag';
+import { bagStore, toggleBag } from '../stores/bag';
 import { addOutputMessage } from '../stores/output';
 
 let player = get(playerStore);
@@ -31,12 +31,22 @@ function actionHandler(event) {
       addOutputMessage('text-slate-200', 'Você avançou e não encontrou nada!');
       break;
     case 'playerRelax':
-      console.log(player);
+      if (player.relaxed) {
+        addOutputMessage('text-slate-200', 'Você já está descansado!');
+        break;
+      }
       if (player.relax() < 0.25) {
         startBattle(player, enemy);
       } else {
+        addOutputMessage(
+          'text-green-400',
+          'Você descansou e recuperou um pouco de vida!'
+        );
         playerStore.update((value) => {
-          return { ...value, health: value.health + 10 };
+          const updatedPlayer = { ...value };
+          const heal = updatedPlayer.health + updatedPlayer['max-health'] * 0.3;
+          updatedPlayer.health = Math.min(heal, updatedPlayer['max-health']);
+          return updatedPlayer;
         });
       }
       break;
@@ -46,16 +56,29 @@ function actionHandler(event) {
     case 'playerEscape':
       battle.escape(player, enemy);
       break;
-    case 'openBag':
-      openBag();
-      break;
-    case 'closeBag':
-      closeBag();
+    case 'toggleBag':
+      toggleBag();
       break;
     case 'openAtributes':
       break;
     case 'closeAtributes':
       break;
+  }
+
+  if (action === 'playerRelax') {
+    playerStore.update((value) => {
+      return {
+        ...value,
+        relaxed: true,
+      };
+    });
+  } else {
+    playerStore.update((value) => {
+      return {
+        ...value,
+        relaxed: false,
+      };
+    });
   }
 }
 

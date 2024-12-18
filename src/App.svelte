@@ -26,16 +26,6 @@
   </main>
 
 <style>
-  @media screen and (height > 720px) {
-    main {
-      height: 90dvh;
-      border-radius: 1rem;
-    }
-    .background {
-      border-radius: 1rem;
-    }
-  }
-
   .background {
     background-image: url('/images/bg-spira-rpg.jpg');
     background-size: cover;

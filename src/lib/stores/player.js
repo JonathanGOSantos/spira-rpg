@@ -5,8 +5,8 @@ class Player {
   constructor(name) {
     this.player = true;
     this.name = name;
-    this.health = 20;
-    this['max-health'] = 20;
+    this.health = 10;
+    this['max-health'] = 10;
     this.attack = 1;
     this.defense = 0;
     this.atributes = {
@@ -17,6 +17,7 @@ class Player {
     };
     this.level = 1;
     this.experience = 0;
+    this.relaxed = false;
     this.inventory = [];
     this.hit = [
       {

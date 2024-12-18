@@ -13,9 +13,9 @@
 
 <section bind:this={outputSection} class="overflow-y-scroll flex-1">
   <output class="py-2 flex flex-col gap-1">
-    {#each $outputStore as line}
+    {#each $outputStore as line, i}
       <p class={line.style}>
-        {line.text}
+        <span class="text-white">{i+1}.</span> {line.text}
       </p>
     {/each}
   </output>

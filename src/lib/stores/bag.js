@@ -1,16 +1,9 @@
 import { get, writable } from 'svelte/store';
 import { getItems } from '../services/getItems';
 
-function openBag() {
+function toggleBag() {
   bagStore.update((store) => {
-    store.opened = true;
-    return store;
-  });
-}
-
-function closeBag() {
-  bagStore.update((store) => {
-    store.opened = false;
+    store.opened = !store.opened;
     return store;
   });
 }
@@ -47,4 +40,4 @@ function setItems(category) {
   return items;
 }
 
-export { bagStore, categories, closeBag, openBag, setCategories };
+export { bagStore, categories, setCategories, toggleBag };

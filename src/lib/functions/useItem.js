@@ -1,6 +1,7 @@
 import { playerStore } from '../stores/player';
 import { bagStore } from '../stores/bag';
 import { addOutputMessage } from '../stores/output';
+import { get } from 'svelte/store';
 
 function useItem(item, e) {
   if (!item.usable) return;
@@ -10,12 +11,21 @@ function useItem(item, e) {
 
   switch (effect) {
     case 'basic-heal':
+      if (get(playerStore).health === get(playerStore)['max-health']) {
+        addOutputMessage(
+          'text-orange-400',
+          'Você já está com a vida cheia, não é possível usar este item!'
+        );
+        bagStore.update((bag) => {
+          bag.opened = false;
+          return bag;
+        });
+        return;
+      }
+
       playerStore.update((p) => {
         let oldHealth = p.health;
-        let health = oldHealth + 10;
-        if (health > p['max-health']) {
-          health = p['max-health'];
-        }
+        let health = Math.min(oldHealth + 3, 20);
         let heal = health - oldHealth;
         let maxHealth = p['max-health'];
 
